@@ -1,0 +1,32 @@
+# Virtual env
+.env
+.venv/
+env/
+venv/
+
+# Python stuff
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# IDE
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Django specific
+db.sqlite3
+*.log
+*.pot
+*.pyc
+
+# Git
+*.orig
+
+# Static/media temp
+staticfiles/
+media/

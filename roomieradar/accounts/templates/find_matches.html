@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Matches</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background: #f5f7fa;
+    }
+    .match-card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+    .match-card h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .match-card p {
+      margin: 5px 0;
+    }
+    .button-group {
+      margin-top: 10px;
+    }
+    .button-group a {
+      text-decoration: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .view-btn {
+      background: #5c67f2;
+    }
+    .message-btn {
+      background: #10b981;
+    }
+  </style>
+</head>
+<body>
+  <h2>Your Matches</h2>
+
+  {% if matches %}
+    {% for match in matches %}
+      <div class="match-card">
+        <h3>{{ match.full_name }} ({{ match.username }})</h3>
+        <p>Email: {{ match.email }}</p>
+        <p>Match: {{ match.score }}%</p>
+        <div class="button-group">
+          <a class="view-btn" href="{% url 'public_profile' match.username %}">View Profile</a>
+          <a class="message-btn" href="{% url 'chat_view' match.username %}">Message</a>
+
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No matches found. Please update your preferences.</p>
+  {% endif %}
+</body>
+</html>
