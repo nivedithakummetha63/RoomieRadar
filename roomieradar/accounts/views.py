@@ -112,6 +112,8 @@ def profile_view(request):
     }
     return render(request, 'profile.html', context)
 
+def welcome_page(request):
+    return render(request, 'welcome.html')
 
 def public_profile(request, username):
     user = get_object_or_404(User, username=username)
@@ -149,7 +151,7 @@ def find_matches_view(request):
 
     for other in other_users:
         score = 0
-        total = 5  # fields we are comparing
+        total = 10
 
         if other.cleanliness == current_prefs.cleanliness:
             score += 1
@@ -161,14 +163,34 @@ def find_matches_view(request):
             score += 1
         if other.smoking == current_prefs.smoking:
             score += 1
+        if other.study_habits == current_prefs.study_habits:
+            score += 1
+        if other.social_life == current_prefs.social_life:
+            score += 1
+        if other.partying == current_prefs.partying:
+            score += 1
+        if other.guest_frequency == current_prefs.guest_frequency:
+            score += 1
+        if other.noise_tolerance == current_prefs.noise_tolerance:
+            score += 1
 
         percent = int((score / total) * 100)
+
+        try:
+            profile_pic_url = other.user.profile.profile_pic.url
+        except:
+            profile_pic_url = '/static/images/default.png'
 
         matches.append({
             'username': other.user.username,
             'full_name': f"{other.user.first_name} {other.user.last_name}",
             'email': other.user.email,
             'score': percent,
+            'profile': {
+                'profile_pic': {
+                    'url': profile_pic_url
+                }
+            }
         })
 
     matches.sort(key=lambda x: x['score'], reverse=True)

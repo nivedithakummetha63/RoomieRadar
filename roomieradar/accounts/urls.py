@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import index,register,activation_email,home,logout_user,profile_view,public_profile,preferences_view,find_matches_view
+from .views import index,register,activation_email,home,logout_user,profile_view,public_profile,preferences_view,find_matches_view,welcome_page
 urlpatterns = [
-    path('', index, name='login'),
+path('',welcome_page, name='welcome'),
+path('login/', index, name='login'),
     path('register/', register, name='register'),
     path('accounts/activate/', activation_email, name='activate_email'),
     path('home/', home, name='home'),

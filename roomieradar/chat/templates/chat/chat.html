@@ -13,11 +13,27 @@
       height: 100vh;
     }
 
-    .chat-header {
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background: #075E54;
       color: white;
       padding: 15px;
-      font-size: 20px;
+    }
+
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background: #128C7E;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .top-bar a:hover {
+      background: #0a5c4c;
     }
 
     .chat-history {
@@ -86,8 +102,10 @@
   </style>
 </head>
 <body>
-  <div class="chat-header">
-    Chat with {{ other_user.username }}
+
+  <div class="top-bar">
+    <div>Chat with {{ other_user.username }}</div>
+    <a href="{% url 'inbox' %}">⬅ Back to Inbox</a>
   </div>
 
   <div class="chat-history" id="chatHistory">
@@ -108,7 +126,6 @@
   </form>
 
   <script>
-    // Auto-scroll to bottom on page load
     const chatHistory = document.getElementById("chatHistory");
     chatHistory.scrollTop = chatHistory.scrollHeight;
   </script>
