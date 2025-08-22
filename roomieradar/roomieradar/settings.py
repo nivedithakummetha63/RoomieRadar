@@ -44,8 +44,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Root URL config
-ROOT_URLCONF = 'roomieradar.urls'
-firsROOT_URLCONF = 'roomieradar.urls'
+ROOT_URLCONF = 'roomieradar.roomieradar.urls'
+
+firsROOT_URLCONF = 'roomieradar.roomieradar.urls'
 
 # Templates
 TEMPLATES = [
