@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-from base.emails import account_activation_email
+from roomieradar.base.emails import account_activation_email
 from .models import Profile, Preferences
 from .forms import ProfileForm, PreferencesForm  # ✅ fixed this import
 
