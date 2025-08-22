@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect  # 👈 added r
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Message
-from accounts.models import Profile
+from roomieradar.accounts.models import Profile
 
 @login_required
 def inbox(request):
