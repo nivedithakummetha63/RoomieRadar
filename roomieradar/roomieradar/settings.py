@@ -21,10 +21,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'base',
-    'accounts',
+    'roomieradar.base',
+    'roomieradar.accounts',
     'django_countries',
-    'chat',
+    'roomieradar.chat',
 ]
 
 # Middleware
