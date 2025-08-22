@@ -25,7 +25,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-path('',include('accounts.urls') ),
+path('',include('roomieradar.accounts.urls') ),
 ]
 from django.contrib import admin
 from django.urls import path, include
@@ -34,8 +34,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
-path('chat/', include('chat.urls')),
+    path('', include('roomieradar.accounts.urls')),
+path('chat/', include('roomieradar.chat.urls')),
 
 ]
 
