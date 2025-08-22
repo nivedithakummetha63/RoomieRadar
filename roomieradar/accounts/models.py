@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from base.models import BaseModel
+from roomieradar.base.models import BaseModel
 from django_countries.fields import CountryField
 
 class ShippingAddress(BaseModel):
